@@ -18,12 +18,11 @@ function HXZ_MenuBullet()
 	end)
 end
 
-
 function HXZ_OpenShopMenu()
 	ESX.UI.Menu.CloseAll()
 
 	ESX.UI.Menu.Open(
-	  'default', GetCurrentResourceName(), 'shop_bullet',{
+        'default', GetCurrentResourceName(), 'shop_bullet',{
 		  title    = "HXZ - Bullet Menu",
 		  align = 'top-left',
 		  elements = {	  			  
@@ -38,8 +37,6 @@ function HXZ_OpenShopMenu()
 		menu.close()
 	end)
 end
-
-
 
 Citizen.CreateThread(function()
     if Config.EnableCommand then
@@ -71,7 +68,6 @@ AddEventHandler('hxz-addcomponent', function()
     ClearPedTasks(PlayerPedId())
 end)
 
-
 function HXZ_CheckArmour()
     Citizen.CreateThread(function()
         while true do
@@ -84,7 +80,6 @@ function HXZ_CheckArmour()
         end
     end)
 end
-
 
 function HXZ_RemoveArmour()
     if GetPedArmour(PlayerPedId()) >= 100 then
@@ -106,7 +101,6 @@ function HXZ_RemoveArmour()
         ESX.ShowNotification(Lang['the_bulletproof_vest_is_worn'])
     end
 end
-
 
 Citizen.CreateThread(function()
     for k,v in pairs(Config.PositionShop) do
@@ -147,4 +141,23 @@ RegisterNetEvent('esx:onPlayerDeath')
 AddEventHandler('esx:onPlayerDeath', function(data)
     SetPedComponentVariation(PlayerPedId(), 9, 0, 0, 0)
     SetPedArmour(PlayerPedId(), 0)
+end)
+
+-- Create blips
+CreateThread(function()
+    if Config.EnabeBlip then
+        for k,v in pairs(Config.PositionShop) do
+            local hxz_blip = AddBlipForCoord(v.x, v.y, v.z)
+
+            SetBlipSprite (hxz_blip, 487)
+            SetBlipDisplay(hxz_blip, 4)
+            SetBlipScale  (hxz_blip, 0.8)
+            SetBlipColour (hxz_blip, 46)
+            SetBlipAsShortRange(hxz_blip, true)
+
+            BeginTextCommandSetBlipName('STRING')
+            AddTextComponentSubstringPlayerName(Lang['blip_map'])
+            EndTextCommandSetBlipName(hxz_blip)
+        end
+    end
 end)
