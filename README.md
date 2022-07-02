@@ -9,4 +9,4 @@ This is a script that I allow you to wear a bulletproof vest. It has its own sho
 -support server: https://discord.gg/gv5y5jsf3t<br><br><br>
 
 Here is the trigger to invoke the menu opening:<br>
-TriggerEvent('hxz:menubullet')
+**TriggerEvent('hxz:menubullet')**
