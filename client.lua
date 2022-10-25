@@ -63,7 +63,7 @@ AddEventHandler('hxz-addcomponent', function()
         },
     })
     SetPedComponentVariation(PlayerPedId(), 9, 4, 1, 1)
-    SetPedArmour(PlayerPedId(), 100)
+    SetPedArmour(PlayerPedId(), 99)
     HXZ_CheckArmour()
     ClearPedTasks(PlayerPedId())
 end)
@@ -82,7 +82,7 @@ function HXZ_CheckArmour()
 end
 
 function HXZ_RemoveArmour()
-    if GetPedArmour(PlayerPedId()) >= 100 then
+    if GetPedArmour(PlayerPedId()) >= 99 then
         lib.progressCircle({
             duration = 2000,
             position = 'middle',
