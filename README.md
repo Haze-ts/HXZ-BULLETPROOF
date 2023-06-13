@@ -5,7 +5,7 @@ This is a script that I allow you to wear a bulletproof vest. It has its own sho
 <h1>DEPENDENCIES</h1>
 - ox_lib - https://github.com/overextended/ox_lib<br>
 - ox_inventory - https://github.com/overextended/ox_inventory<br>
-- gridsystem - https://github.com/Maybacco/gridsystem<br>><br><br>
+- gridsystem - https://github.com/Maybacco/gridsystem<br><br><br>
 
 Here is the trigger to invoke the menu opening:<br>
 **TriggerEvent('hxz:menubullet')**
